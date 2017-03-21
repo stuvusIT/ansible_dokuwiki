@@ -26,22 +26,8 @@ A list of other roles hosted on Galaxy should go here, plus any details in regar
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
 
-### Playbook
-
 ```yml
 ```
-
-
-### Vars
-
-```yml
-```
-
-
-### Result
-
-A short summary what the playbook actually does.
-
 
 ## License
 
