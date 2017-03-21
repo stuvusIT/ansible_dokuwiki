@@ -3,7 +3,7 @@ galaxy_info:
   description: Insert description here
   company: stuvus (https://stuvus.uni-stuttgart.de)
 
-  license: https://creativecommons.org/licenses/by-sa/4.0/
+  license: CC-BY-SA
 
   min_ansible_version: 2.2
 
