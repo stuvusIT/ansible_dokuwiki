@@ -1,0 +1,128 @@
+---
+dokuwiki:
+#General
+  dokuwiki_filename: dokuwiki-c5525093cf2c4f47e2e5d2439fe13964.tgz
+
+  ## See conf file for the specifications of all those variable names. 
+
+  #Stuvus-Wiki-Configurations
+  title: 'Wiki'
+  start: 'Startseite'
+  lang: 'de'
+  template: 'dokuwiki'
+  tagline: ''
+  sidebar_name: 'sidebar'
+  license: 'cc-by-nc-sa'
+  savedir: './data'
+  basedir: ''
+  baseurl: ''
+  cookiedir: ''
+  dmode: 0755
+  fmode: 0644
+  allowdebug: 0
+
+  #Stuvus-Wiki-Display-Configurations
+  recent: 20
+  recent_days: 7
+  breadcrums: 10
+  youarehere: 0
+  fullpath: 0
+  typography:
+  dformat: '%Y/%m/%d %H:%M'
+  signature: '--- //[[@MAIL@|@NAME@]] @DATE@//)'
+  showuseras: 'username'
+  toptoclevel: 1
+  tocminheads: 3
+  maxtoclevel: 3
+  maxseclevel: 3
+  camelcase: 0
+  deaccent: 1
+  useheading: 0
+  sneaky_index: 0
+  hidepages: ''
+
+  #Stuvus-Wiki-Auth-Configurations
+  useacl: 0
+  autopasswd: 1
+  authtype: 'authplain'
+  passcrypt: smd5
+  defaultgroup: user
+  superuser:  #GROUPS MUST BE SET VIA ANSIBLE
+  manager:
+  profileconfirm: 1
+  rememberme: 1
+  disableactions: ''
+  auth_security_timeout: 900
+  securecookie: 1
+  remote: 0
+  remoteuser: #MUST BE SET VIA ANSIBLE?
+
+  #Stuvus-Wiki-Antispam-Configurations
+  usewordblock: 1
+  relnofollow: 1
+  indexdelay: 432000
+  mailguard: 'hex'
+  iexssprotect: 1
+
+  #Stuvus-Wiki-Editing-Configurations
+  usedraft: 1
+  htmlok: 0
+  phpok: 0
+  locktime: 900
+  cachetime: 84600
+
+  #Stuvus-Wiki-Media-Configurations
+  mediarevision: 1
+  refcheck: 1
+  gdlib: 2
+  im_convert: ''
+  jpg_quality: '70'
+  fetchsize: 0
+
+  #Stuvus-Wiki-Notification-Configurations
+  subscribers: 0
+  subscribe_time: 86400
+  notify: ''
+  registernotify: ''
+  mailform: ''
+  mailprefix: ''
+  htmlmail: 1
+
+  #Stuvus-Wiki-Syndication-Configurations
+  sitemap: 0
+  rss_type: 'rss1'
+  rss_linkto: 'diff'
+  rss_content: 'abstract'
+  rss_media: 'both'
+  rss_update: 300
+  rss_show_summary: 1
+
+  #Stuvus-Wiki-Advanced-Configurations 
+  updatecheck: 1
+  userewrite: 0
+  uselash: 0
+  sepchar: '_'
+  canonical: 0
+  fnencode: 'url'
+  autoplural: 0
+  compression: 'gz'
+  gzip_output: 0
+  compress: 1
+  cssdatauri: 512
+  send404: 0
+  broken_iua: 0
+  xsendfile: 0
+  renderer_xhtml: 'xhtml'
+  readdircache: 0
+
+  #Stuvus-Wiki-Network-Settings
+  dnslookup: 1
+  jquerycdn: 0
+
+  #Stuvus-Wiki-Proxy-Configurations:
+  proxy_host: ''
+  proxy_port: ''
+  proxy_user: ''
+  proxy_pass: ''
+  proxy_ssl: 0
+  procy_except: ''
