@@ -1,128 +1,127 @@
 ---
-dokuwiki:
 #General
   dokuwiki_filename: dokuwiki-c5525093cf2c4f47e2e5d2439fe13964.tgz
 
   ## See conf file for the specifications of all those variable names. 
 
   #Stuvus-Wiki-Configurations
-  title: 'Wiki'
-  start: 'Startseite'
-  lang: 'de'
-  template: 'dokuwiki'
-  tagline: ''
-  sidebar_name: 'sidebar'
-  license: 'cc-by-nc-sa'
-  savedir: './data'
-  basedir: ''
-  baseurl: ''
-  cookiedir: ''
-  dmode: 0755
-  fmode: 0644
-  allowdebug: 0
+  dokuwiki_title: 'Wiki'
+  dokuwiki_start: 'Startseite'
+  dokuwiki_lang: 'de'
+  dokuwiki_template: 'dokuwiki'
+  dokuwiki_tagline: ''
+  dokuwiki_sidebar_name: 'sidebar'
+  dokuwiki_license: 'cc-by-nc-sa'
+  dokuwiki_savedir: './data'
+  dokuwiki_basedir: ''
+  dokuwiki_baseurl: ''
+  dokuwiki_cookiedir: ''
+  dokuwiki_dmode: 0755
+  dokuwiki_fmode: 0644
+  dokuwiki_allowdebug: 0
 
   #Stuvus-Wiki-Display-Configurations
-  recent: 20
-  recent_days: 7
-  breadcrums: 10
-  youarehere: 0
-  fullpath: 0
-  typography:
-  dformat: '%Y/%m/%d %H:%M'
-  signature: '--- //[[@MAIL@|@NAME@]] @DATE@//)'
-  showuseras: 'username'
-  toptoclevel: 1
-  tocminheads: 3
-  maxtoclevel: 3
-  maxseclevel: 3
-  camelcase: 0
-  deaccent: 1
-  useheading: 0
-  sneaky_index: 0
-  hidepages: ''
+  dokuwiki_recent: 20
+  dokuwiki_recent_days: 7
+  dokuwiki_breadcrums: 10
+  dokuwiki_youarehere: 0
+  dokuwiki_fullpath: 0
+  dokuwiki_typography:
+  dokuwiki_dformat: '%Y/%m/%d %H:%M'
+  dokuwiki_signature: '--- //[[@MAIL@|@NAME@]] @DATE@//)'
+  dokuwiki_showuseras: 'username'
+  dokuwiki_toptoclevel: 1
+  dokuwiki_tocminheads: 3
+  dokuwiki_maxtoclevel: 3
+  dokuwiki_maxseclevel: 3
+  dokuwiki_camelcase: 0
+  dokuwiki_deaccent: 1
+  dokuwiki_useheading: 0
+  dokuwiki_sneaky_index: 0
+  dokuwiki_hidepages: ''
 
   #Stuvus-Wiki-Auth-Configurations
-  useacl: 0
-  autopasswd: 1
-  authtype: 'authplain'
-  passcrypt: smd5
-  defaultgroup: user
-  superuser:  #GROUPS MUST BE SET VIA ANSIBLE
-  manager:
-  profileconfirm: 1
-  rememberme: 1
-  disableactions: ''
-  auth_security_timeout: 900
-  securecookie: 1
-  remote: 0
-  remoteuser: #MUST BE SET VIA ANSIBLE?
+  dokuwiki_useacl: 0
+  dokuwiki_autopasswd: 1
+  dokuwiki_authtype: 'authplain'
+  dokuwiki_passcrypt: smd5
+  dokuwiki_defaultgroup: user
+  dokuwiki_superuser:  #GROUPS MUST BE SET VIA ANSIBLE
+  dokuwiki_manager:
+  dokuwiki_profileconfirm: 1
+  dokuwiki_rememberme: 1
+  dokuwiki_disableactions: ''
+  dokuwiki_auth_security_timeout: 900
+  dokuwiki_securecookie: 1
+  dokuwiki_remote: 0
+  dokuwiki_remoteuser: #MUST BE SET VIA ANSIBLE?
 
   #Stuvus-Wiki-Antispam-Configurations
-  usewordblock: 1
-  relnofollow: 1
-  indexdelay: 432000
-  mailguard: 'hex'
-  iexssprotect: 1
+  dokuwiki_usewordblock: 1
+  dokuwiki_relnofollow: 1
+  dokuwiki_indexdelay: 432000
+  dokuwiki_mailguard: 'hex'
+  dokuwiki_iexssprotect: 1
 
   #Stuvus-Wiki-Editing-Configurations
-  usedraft: 1
-  htmlok: 0
-  phpok: 0
-  locktime: 900
-  cachetime: 84600
+  dokuwiki_usedraft: 1
+  dokuwiki_htmlok: 0
+  dokuwiki_phpok: 0
+  dokuwiki_locktime: 900
+  dokuwiki_cachetime: 84600
 
   #Stuvus-Wiki-Media-Configurations
-  mediarevision: 1
-  refcheck: 1
-  gdlib: 2
-  im_convert: ''
-  jpg_quality: '70'
-  fetchsize: 0
+  dokuwiki_mediarevision: 1
+  dokuwiki_refcheck: 1
+  dokuwiki_gdlib: 2
+  dokuwiki_im_convert: ''
+  dokuwiki_jpg_quality: '70'
+  dokuwiki_fetchsize: 0
 
   #Stuvus-Wiki-Notification-Configurations
-  subscribers: 0
-  subscribe_time: 86400
-  notify: ''
-  registernotify: ''
-  mailform: ''
-  mailprefix: ''
-  htmlmail: 1
+  dokuwiki_subscribers: 0
+  dokuwiki_subscribe_time: 86400
+  dokuwiki_notify: ''
+  dokuwiki_registernotify: ''
+  dokuwiki_mailform: ''
+  dokuwiki_mailprefix: ''
+  dokuwiki_htmlmail: 1
 
   #Stuvus-Wiki-Syndication-Configurations
-  sitemap: 0
-  rss_type: 'rss1'
-  rss_linkto: 'diff'
-  rss_content: 'abstract'
-  rss_media: 'both'
-  rss_update: 300
-  rss_show_summary: 1
+  dokuwiki_sitemap: 0
+  dokuwiki_rss_type: 'rss1'
+  dokuwiki_rss_linkto: 'diff'
+  dokuwiki_rss_content: 'abstract'
+  dokuwiki_rss_media: 'both'
+  dokuwiki_rss_update: 300
+  dokuwiki_rss_show_summary: 1
 
   #Stuvus-Wiki-Advanced-Configurations 
-  updatecheck: 1
-  userewrite: 0
-  uselash: 0
-  sepchar: '_'
-  canonical: 0
-  fnencode: 'url'
-  autoplural: 0
-  compression: 'gz'
-  gzip_output: 0
-  compress: 1
-  cssdatauri: 512
-  send404: 0
-  broken_iua: 0
-  xsendfile: 0
-  renderer_xhtml: 'xhtml'
-  readdircache: 0
+  dokuwiki_updatecheck: 1
+  dokuwiki_userewrite: 0
+  dokuwiki_uselash: 0
+  dokuwiki_sepchar: '_'
+  dokuwiki_canonical: 0
+  dokuwiki_fnencode: 'url'
+  dokuwiki_autoplural: 0
+  dokuwiki_compression: 'gz'
+  dokuwiki_gzip_output: 0
+  dokuwiki_compress: 1
+  dokuwiki_cssdatauri: 512
+  dokuwiki_send404: 0
+  dokuwiki_broken_iua: 0
+  dokuwiki_xsendfile: 0
+  dokuwiki_renderer_xhtml: 'xhtml'
+  dokuwiki_readdircache: 0
 
   #Stuvus-Wiki-Network-Settings
-  dnslookup: 1
-  jquerycdn: 0
+  dokuwiki_dnslookup: 1
+  dokuwiki_jquerycdn: 0
 
   #Stuvus-Wiki-Proxy-Configurations:
-  proxy_host: ''
-  proxy_port: ''
-  proxy_user: ''
-  proxy_pass: ''
-  proxy_ssl: 0
-  procy_except: ''
+  dokuwiki_proxy_host: ''
+  dokuwiki_proxy_port: ''
+  dokuwiki_proxy_user: ''
+  dokuwiki_proxy_pass: ''
+  dokuwiki_proxy_ssl: 0
+  dokuwiki_procy_except: ''
