@@ -1,8 +1,6 @@
 ---
-sudo:true
-
 - unarchive:
-    src: /files/{{ dokuwiki_file }}
+    src: /files/{{ dokuwiki_filename }}
     dest: /dokuwiki/
 
 - name: Create local.php config file
