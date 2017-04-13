@@ -1,6 +1,4 @@
 ---
-sudo:true
-
 - unarchive:
     src: /files/{{ dokuwiki_file }}
     dest: /dokuwiki/
