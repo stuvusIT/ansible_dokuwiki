@@ -18,7 +18,7 @@ $conf['title']       = {{ dokuwiki_title }};     //what to show in the title
 $conf['start']       = {{ dokuwiki_start }};     //name of start page
 $conf['lang']        = {{ dokuwiki_language }};  //your language
 $conf['template']    = {{ dokuwiki_template }};   //see lib/tpl directory
-$conf['tagline']     = {{ dokuwiki_tageline }};  //tagline in header (if template supports it)
+$conf['tagline']     = {{ dokuwiki_tagline }};  //tagline in header (if template supports it)
 $conf['sidebar']     = {{ dokuwiki_sidebar_name }};//name of sidebar in root namespace (if template supports it)
 $conf['license']     = {{ dokuwiki_license }};   //see conf/license_php
 $conf['savedir']     = {{ dokuwiki_savedir | mandatory}};   //where to store all the files
@@ -37,8 +37,8 @@ $conf['youarehere']  = {{ dokuwiki_youarehere }};//show "You are here" navigatio
 $conf['fullpath']    = {{ dokuwiki_fullpath }};  //show full path of the document or relative to datadir only? 0|1
 $conf['typography']  = {{ dokuwiki_typography }};//smartquote conversion 0=off, 1=doublequotes, 2=all quotes
 $conf['dformat']     = {{ dokuwiki_dformat }};   //dateformat accepted by PHPs strftime() function default:
-$conf['signature']   = {{ dokuwiki_signature }; //signature see wiki page for details 
-$conf['showuseras']  = {{ dokuwiki_showuseras }};// 'loginname' users login name
+$conf['signature']   = {{ dokuwiki_signature }}; //signature see wiki page for details 
+$conf['showuseras']  =  {{ dokuwiki_showuseras }}; // 'loginname' users login name
                                         // 'username' users full name
                                         // 'email' e-mail address (will be obfuscated as per mailguard)
                                         // 'email_link' e-mail address as a mailto: link (obfuscated)
@@ -57,7 +57,7 @@ $conf['useacl']      = {{ dokuwiki_useacl }};    //Use Access Control Lists to r
 $conf['autopasswd']  = {{ dokuwiki_autopasswd }};//autogenerate passwords and email them to user
 $conf['authtype']    = {{ dokuwiki_authtype }};  //which authentication backend shoul be used
 $conf['passcrypt']   = {{ dokuwiki_passcrypt }}; //Used crypt method (smd5,md5,sha1,ssha,crypt,mysql,my411)
-$conf['defaultgroup']= {{ defaultgroup }};//Default groups new Users are added to
+$conf['defaultgroup']= {{ dokuwiki_defaultgroup }};//Default groups new Users are added to
 $conf['superuser']   = {{ dokuwiki_superuser }}; //The admin can be user or @group or comma separated list user1,@group1,user2
 $conf['manager']     = {{ dokuwiki_manager }};   //The manager can be user or @group or comma separated list user1,@group1,user2
 $conf['profileconfirm'] = {{ dokuwiki_profileconfirm }};//Require current password to confirm changes to user profile
@@ -155,7 +155,7 @@ $conf['send404']     = {{ dokuwiki_send404 }};  //Send a HTTP 404 status for non
 $conf['broken_iua']  = {{ dokuwiki_broken_iua}};//Platform with broken ignore_user_abort (IIS+CGI) 0|1
 $conf['xsendfile']   = {{ dokuwiki_xsendfile }};//Use X-Sendfile (1 = lighttpd, 2 = standard)
 $conf['renderer_xhtml'] = {{ dokuwiki_renderer_xhtml }};//renderer to use for main page generation
-$conf['readdircache'] = {{ dokuwiki_readdirc}}; //time cache in second for the readdir operation, 0 to deactivate_
+$conf['readdircache'] = {{ dokuwiki_readdircache}}; //time cache in second for the readdir operation, 0 to deactivate_
 
 /* Network Settings */
 $conf['dnslookups'] = {{ dokuwiki_dnslookup }}; //disable to disallow IP to hostname lookups
