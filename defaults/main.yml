@@ -7,7 +7,7 @@
   #Stuvus-Wiki-Configurations
   dokuwiki_title: 'Wiki'
   dokuwiki_start: 'Startseite'
-  dokuwiki_lang: 'de'
+  dokuwiki_language: 'de'
   dokuwiki_template: 'dokuwiki'
   dokuwiki_tagline: ''
   dokuwiki_sidebar_name: 'sidebar'
@@ -71,7 +71,7 @@
   dokuwiki_cachetime: 84600
 
   #Stuvus-Wiki-Media-Configurations
-  dokuwiki_mediarevision: 1
+  dokuwiki_mediarevisions: 1
   dokuwiki_refcheck: 1
   dokuwiki_gdlib: 2
   dokuwiki_im_convert: ''
@@ -83,7 +83,7 @@
   dokuwiki_subscribe_time: 86400
   dokuwiki_notify: ''
   dokuwiki_registernotify: ''
-  dokuwiki_mailform: ''
+  dokuwiki_mailfrom: ''
   dokuwiki_mailprefix: ''
   dokuwiki_htmlmail: 1
 
@@ -124,4 +124,4 @@
   dokuwiki_proxy_user: ''
   dokuwiki_proxy_pass: ''
   dokuwiki_proxy_ssl: 0
-  dokuwiki_procy_except: ''
+  dokuwiki_proxy_except: ''

@@ -19,4 +19,4 @@ galaxy_info:
     - stuvus
     - dokuwiki
 
-dependencies: [stuvusIT/nginx, stuvusIT/php-fpm]
+dependencies: []

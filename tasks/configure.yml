@@ -1,0 +1,8 @@
+---
+- name: template for this
+  template:
+    src: templates/local.php.j2
+    dest: /srv/dokuwiki/conf/local.php
+  
+  
+  

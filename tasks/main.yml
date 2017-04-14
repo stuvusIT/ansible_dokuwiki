@@ -1,9 +1,7 @@
 ---
 - unarchive:
-    src: /files/{{ dokuwiki_filename }}
-    dest: /dokuwiki/
+    src: files/{{ dokuwiki_filename }}
+    dest: /srv/
 
-- name: Create local.php config file
-  template:
-    src: templates/local.php.j2
-    dest: /dokuwiki/conf/local.php.dist
+- include: configure.yml
+
