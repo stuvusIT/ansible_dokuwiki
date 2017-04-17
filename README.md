@@ -19,7 +19,7 @@ To see all vars possible for dokuwiki see
 
 ## Dependencies
 
-This role needs the php-fpm and nginx role installed on the host to function. 
+This role needs the php-fpm and nginx role installed on the host to function with the variables from the group_vars of dokuwiki.yml. 
 
 
 ## Example Playbook
