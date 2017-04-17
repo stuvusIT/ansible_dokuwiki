@@ -1,0 +1,7 @@
+---
+- unarchive:
+    src: files/{{ dokuwiki_filename }}
+    dest: /srv/
+
+- include: configure.yml
+
