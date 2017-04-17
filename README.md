@@ -41,7 +41,7 @@ Including an example of how to use your role (for instance, with variables passe
 
 ### Result
 
-A host on which a dokuwiki is installed and configured for use with ldap user access controll. Content migration is not part of this.
+A host on which a dokuwiki is installed and configured for use with ldap user access control. Content migration is not part of this.
 
 ## License
 
@@ -50,4 +50,4 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 
 ## Author Information
 
- * [Florian Greinert (sryneklar)](https://github.com/sryneklar) _fl.greinert@stuvus.uni-stuttgart.de_
+ * [Florian Greinert (sryneklar)](https://github.com/sryneklar) _florian.greinert@stuvus.uni-stuttgart.de_
