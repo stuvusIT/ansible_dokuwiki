@@ -1,16 +1,17 @@
-# Role Name
+# Role 
 
-A brief description of the role goes here.
-
+This is an ansible role which sets up a dokuwiki instance and configures the wiki and the ldap authentication for the users.
 
 ## Requirements
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This role needs an apt based packager manager.
 
 
 ## Role Variables
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+To see all vars possible for dokuwiki see 
+[dokuwiki config page](https://www.dokuwiki.org/config)
+
 
 ```yml
 ```
@@ -18,7 +19,7 @@ A description of the settable variables for this role should go here, including 
 
 ## Dependencies
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+This role needs the php-fpm and nginx role installed on the host to function. 
 
 
 ## Example Playbook
@@ -40,8 +41,7 @@ Including an example of how to use your role (for instance, with variables passe
 
 ### Result
 
-A short summary what the playbook actually does.
-
+A host on which a dokuwiki is installed and configured for use with ldap user access controll. Content migration is not part of this.
 
 ## License
 
@@ -50,4 +50,4 @@ This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 Inter
 
 ## Author Information
 
- * [Author Name (nickname)](github profile) _your-full-stuvus-email-address@stuvus.uni-stuttgart.de_
+ * [Florian Greinert (sryneklar)](https://github.com/sryneklar) _fl.greinert@stuvus.uni-stuttgart.de_
