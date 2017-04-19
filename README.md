@@ -18,12 +18,6 @@ There are no mandatory variables for this role. It will be a generic dokuwiki wi
 
 This role needs the php-fpm and nginx role installed on the host to function with the variables from the group_vars of dokuwiki.yml. 
 
-
-## Example Playbook
-
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
-
-
 ## Playbook
 
 ### Group Vars of the dokuwiki for example the nginx-role:
@@ -73,7 +67,7 @@ So when a host is being set up with this role those values will be taken instead
     - dokuwiki
 ```
 Here it is speciefied that the roles php-fpm and nginx are to be played before
-dokuwiki is being played on the hosts that belong to "dokuwiki".
+dokuwiki is being played on the hosts that belong to dokuwiki.
 
 ### Result
 A running dokuwiki instance on the host.
