@@ -1,4 +1,4 @@
-# Role 
+# Dokuwiki 
 
 This is an ansible role which sets up a dokuwiki instance and configures the wiki and the ldap authentication for the users.
 

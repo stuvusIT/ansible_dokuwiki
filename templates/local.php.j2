@@ -88,11 +88,11 @@ $conf['cachetime']   = {{ dokuwiki_cachetime }};  //maximum age for cachefile in
 
 /* Link Settings */
 // Set target to use when creating links - leave empty for same window
-$conf['target']['wiki']      = '';
-$conf['target']['interwiki'] = '';
-$conf['target']['extern']    = '';
-$conf['target']['media']     = '';
-$conf['target']['windows']   = '';
+$conf['target']['wiki']      = {{ dokuwiki_target_wiki }};
+$conf['target']['interwiki'] = {{ dokuwiki_target_interwiki }};
+$conf['target']['extern']    = {{ dokuwiki_target_extern }};
+$conf['target']['media']     = {{ dokuwiki_target_media }};
+$conf['target']['windows']   = {{ dokuwiki_target_windows }};
 
 /* Media Settings */
 $conf['mediarevisions'] = {{ dokuwiki_mediarevisions }};//enable/disable media revisions

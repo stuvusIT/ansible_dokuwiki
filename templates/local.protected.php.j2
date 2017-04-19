@@ -14,34 +14,10 @@ $conf['useacl']      = {{ dokuwiki_useacl }};
 $conf['openregister']= 0;
 $conf['authtype']    = 'ldap';
  
-#$conf['auth']['ldap']['server']      = 'localhost';
-#$conf['auth']['ldap']['port']        = 389;
-$conf['auth']['ldap']['server']      = {{ dokuwiki_ldapserver }}; #instead of the above two settings
-$conf['auth']['ldap']['usertree']    = 'ou=People, dc=server, dc=tld';
-$conf['auth']['ldap']['grouptree']   = 'ou=Group, dc=server, dc=tld';
-$conf['auth']['ldap']['userfilter']  = '(&(uid=%{user})(objectClass=posixAccount))';
-$conf['auth']['ldap']['groupfilter'] = '(&(objectClass=posixGroup)(|(gidNumber=%{gid})(memberUID=%{user})))';
+$conf['auth']['ldap']['port']        = {{ dokuwiki_ldap_port }};
+$conf['auth']['ldap']['server']      = {{ dokuwiki_ldap_server }}; #instead of the above two settings
+$conf['auth']['ldap']['usertree']    = {{ ldap_usertree}}  #'ou=People, dc=server, dc=tld';
+$conf['auth']['ldap']['grouptree']   = {{ ldap_grouptree }} #'ou=Group, dc=server, dc=tld';
+$conf['auth']['ldap']['userfilter']  = {{ ldap_userfilter }} #'(&(uid=%{user})(objectClass=posixAccount))';
+$conf['auth']['ldap']['groupfilter'] = {{ ldap_groupfilter}} #'(&(objectClass=posixGroup)(|(gidNumber=%{gid})(memberUID=%{user})))';
  
-# This is optional but may be required for your server:
-#$conf['auth']['ldap']['version']    = 3;
-
-# This enables the use of the STARTTLS command
-#$conf['auth']['ldap']['starttls']   = 1;
-
-# This is optional and is required to be off when using Active Directory:
-#$conf['auth']['ldap']['referrals']  = 0;
-
-# Optional bind user and password if anonymous bind is not allowed
-#$conf['auth']['ldap']['binddn']     = 'cn=admin, dc=my, dc=home';
-#$conf['auth']['ldap']['bindpw']     = 'secret';
-
-# Mapping can be used to specify where the internal data is coming from. 
-#$conf['auth']['ldap']['mapping']['name']  = 'displayname'; # Name of attribute Active Directory stores it's pretty print user name.
-#$conf['auth']['ldap']['mapping']['grps']  = array('memberof' => '/CN=(.+?),/i'); # Where groups are defined in Active Directory
-
-# Limit search scope for user and group searches (sub|one|base)
-#$conf['auth']['ldap']['userscope']  = 'sub';
-#$conf['auth']['ldap']['groupscope'] = 'sub';
-
-# Optional debugging
-#$conf['auth']['ldap']['debug']      = 1;
