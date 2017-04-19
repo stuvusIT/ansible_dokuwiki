@@ -4,8 +4,6 @@
    
   ## See conf file for the specifications of all those variable names. 
 
-  dokuwiki_ldapserver: 'https://'
-
   #Stuvus-Wiki-Configurations
   dokuwiki_title: 'Wiki'
   dokuwiki_start: 'Startseite'
@@ -13,7 +11,7 @@
   dokuwiki_template: 'dokuwiki'
   dokuwiki_tagline: ''
   dokuwiki_sidebar_name: 'sidebar'
-  dokuwiki_license: 'cc-by-nc-sa'
+  dokuwiki_license: 'by-sa'
   dokuwiki_savedir: './data'
   dokuwiki_basedir: ''
   dokuwiki_baseurl: ''
@@ -46,9 +44,9 @@
   dokuwiki_useacl: 1
   dokuwiki_autopasswd: 1
   dokuwiki_authtype: 'ldap'
-  dokuwiki_passcrypt: smd5
+  dokuwiki_passcrypt: sha1 #(smd5,md5,sha1,ssha,crypt,mysql,my411)
   dokuwiki_defaultgroup: user
-  dokuwiki_superuser:  #GROUPS MUST BE SET VIA ANSIBLE
+  dokuwiki_superuser: 
   dokuwiki_manager:
   dokuwiki_profileconfirm: 1
   dokuwiki_rememberme: 1
@@ -116,7 +114,7 @@
   dokuwiki_renderer_xhtml: 'xhtml'
   dokuwiki_readdircache: 0
 
-  #Stuvus-Wiki-Network-Settings
+  #Stuvus-Wiki-Network-Configurations
   dokuwiki_dnslookup: 1
   dokuwiki_jquerycdn: 0
 
@@ -127,3 +125,18 @@
   dokuwiki_proxy_pass: ''
   dokuwiki_proxy_ssl: 0
   dokuwiki_proxy_except: ''
+
+  #Stuvus-Wiki-Link-Configurations
+  dokuwiki_target_wiki: ''
+  dokuwiki_target_interwiki: ''
+  dokuwiki_target_extern: ''
+  dokuwiki_target_media: ''
+  dokuwiki_target_windows: '' 
+
+  #Stuvus-Wiki-Ldap-Configurations
+  dokuwiki_ldap_port: ''
+  dokuwiki_ldap_server: ''
+  ldap_usertree: 'ou=People, dc=server, dc=tld'
+  ldap_grouptree: 'ou=Group, dc=server, dc=tld'
+  ldap_userfilter: '(&(uid=%{user})(objectClass=posixAccount))'
+  ldap_groupfilter: '(&(objectClass=posixGroup)(|(gidNumber=%{gid})(memberUID=%{user})))'
