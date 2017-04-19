@@ -16,7 +16,7 @@ There are no mandatory variables for this role. It will be a generic dokuwiki wi
 
 ## Dependencies
 
-This role needs the [php-fpm](https://github.com/stuvusIT/php-fpm/README.md) and [nginx](https://github.com/stuvusIT/nginx/README.md) role installed on the host to function with the variables from the group_vars of dokuwiki.yml. 
+This role needs the [php-fpm](https://github.com/stuvusIT/php-fpm) and [nginx](https://github.com/stuvusIT/nginx) role installed on the host to function with the variables from the group_vars of dokuwiki.yml. 
 
 ## Playbook
 
