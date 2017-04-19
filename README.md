@@ -12,10 +12,7 @@ This role needs an apt based packager manager.
 To see all vars possible for dokuwiki see 
 [dokuwiki config page](https://www.dokuwiki.org/config)
 
-
-```yml
-```
-
+There are no mandatory variables for this role. It will be a generic dokuwiki without specified variables though.
 
 ## Dependencies
 
@@ -27,21 +24,59 @@ This role needs the php-fpm and nginx role installed on the host to function wit
 Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
 
-### Playbook
+## Playbook
+
+### Group Vars of the dokuwiki for example the nginx-role:
 
 ```yml
+[...]
+served_domains:
+  - domains: 
+    - dokuwiki
+    - wiki
+    privkey_path: /etc/ssl/wiki_cert.pem  # privkey.pem will placed there
+    fullchain_path: /etc/ssl/wiki_fullchain.pem  # fullchain.pem will placed there
+    default_server: [true|false*]
+    allowed_ip_ranges:
+      - 172.27.10.0/24
+    https: true
+    index:
+      - index.php
+      - index.html
+    locations:
+      - condition: /
+        content:
+        | 
+          try_files $1 $uri $uri/ /index.php$is_args$args;
+      - condition: ~ ^/index\.php(.*)$
+        content:
+        | 
+         fastcgi_index index.php;
+         include /etc/nginx/fastcgi_params;
+         try_files $uri =404;
+         fastcgi_split_path_info ^(.+\.php)(/.+)$;
+         fastcgi_pass unix:/run/php/php7.0-fpm.sock;
+         fastcgi_param SCRIPT_FILENAME /usr/share/icingaweb2/public/index.php;
+         fastcgi_param ICINGAWEB_CONFIGDIR /etc/icingaweb2;
+         fastcgi_param REMOTE_USER $remote_user;
 ```
+So when a host is being set up with this role those values will be taken instead of the default values set in the nginx role or the host variables.
 
-
-### Vars
+### All.yml
 
 ```yml
+- hosts: dokuwiki
+  become: yes
+  roles:
+    - php-fpm
+    - nginx
+    - dokuwiki
 ```
-
+Here it is speciefied that the roles php-fpm and nginx are to be played before
+dokuwiki is being played on the hosts that belong to "dokuwiki".
 
 ### Result
-
-A host on which a dokuwiki is installed and configured for use with ldap user access control. Content migration is not part of this.
+A running dokuwiki instance on the host.
 
 ## License
 
