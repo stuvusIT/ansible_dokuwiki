@@ -1,7 +1,9 @@
 ---
 - unarchive:
-    src: files/{{ dokuwiki_filename }}
+
+    src: https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
     dest: /srv/
+    remote_src: True
 
 - include: configure.yml
 

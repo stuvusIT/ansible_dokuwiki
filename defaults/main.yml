@@ -4,14 +4,14 @@
    
   ## See conf file for the specifications of all those variable names. 
 
-  #Stuvus-Wiki-Configurations
+  #Wiki-Configurations
   dokuwiki_title: 'Wiki'
   dokuwiki_start: 'Startseite'
   dokuwiki_language: 'de'
   dokuwiki_template: 'dokuwiki'
   dokuwiki_tagline: ''
   dokuwiki_sidebar_name: 'sidebar'
-  dokuwiki_license: 'by-sa'
+  dokuwiki_license: 'cc-by-sa'
   dokuwiki_savedir: './data'
   dokuwiki_basedir: ''
   dokuwiki_baseurl: ''
@@ -20,7 +20,7 @@
   dokuwiki_fmode: 0644
   dokuwiki_allowdebug: 0
 
-  #Stuvus-Wiki-Display-Configurations
+  #Display-Configurations
   dokuwiki_recent: 20
   dokuwiki_recent_days: 7
   dokuwiki_breadcrums: 10
@@ -40,7 +40,7 @@
   dokuwiki_sneaky_index: 0
   dokuwiki_hidepages: ''
 
-  #Stuvus-Wiki-Auth-Configurations
+  #Wiki-Auth-Configurations
   dokuwiki_useacl: 1
   dokuwiki_autopasswd: 1
   dokuwiki_authtype: 'ldap'
@@ -56,21 +56,21 @@
   dokuwiki_remote: 0
   dokuwiki_remoteuser: #MUST BE SET VIA ANSIBLE?
 
-  #Stuvus-Wiki-Antispam-Configurations
+  #Wiki-Antispam-Configurations
   dokuwiki_usewordblock: 1
   dokuwiki_relnofollow: 1
   dokuwiki_indexdelay: 432000
   dokuwiki_mailguard: 'hex'
   dokuwiki_iexssprotect: 1
 
-  #Stuvus-Wiki-Editing-Configurations
+  #Wiki-Editing-Configurations
   dokuwiki_usedraft: 1
   dokuwiki_htmlok: 0
   dokuwiki_phpok: 0
   dokuwiki_locktime: 900
   dokuwiki_cachetime: 84600
 
-  #Stuvus-Wiki-Media-Configurations
+  #Wiki-Media-Configurations
   dokuwiki_mediarevisions: 1
   dokuwiki_refcheck: 1
   dokuwiki_gdlib: 2
@@ -78,7 +78,7 @@
   dokuwiki_jpg_quality: '70'
   dokuwiki_fetchsize: 0
 
-  #Stuvus-Wiki-Notification-Configurations
+  #Wiki-Notification-Configurations
   dokuwiki_subscribers: 0
   dokuwiki_subscribe_time: 86400
   dokuwiki_notify: ''
@@ -87,7 +87,7 @@
   dokuwiki_mailprefix: ''
   dokuwiki_htmlmail: 1
 
-  #Stuvus-Wiki-Syndication-Configurations
+  #Wiki-Syndication-Configurations
   dokuwiki_sitemap: 0
   dokuwiki_rss_type: 'rss1'
   dokuwiki_rss_linkto: 'diff'
@@ -96,7 +96,7 @@
   dokuwiki_rss_update: 300
   dokuwiki_rss_show_summary: 1
 
-  #Stuvus-Wiki-Advanced-Configurations 
+  #Wiki-Advanced-Configurations 
   dokuwiki_updatecheck: 1
   dokuwiki_userewrite: 0
   dokuwiki_uselash: 0
@@ -114,7 +114,7 @@
   dokuwiki_renderer_xhtml: 'xhtml'
   dokuwiki_readdircache: 0
 
-  #Stuvus-Wiki-Network-Configurations
+  #Wiki-Network-Configurations
   dokuwiki_dnslookup: 1
   dokuwiki_jquerycdn: 0
 
@@ -126,17 +126,18 @@
   dokuwiki_proxy_ssl: 0
   dokuwiki_proxy_except: ''
 
-  #Stuvus-Wiki-Link-Configurations
+  #Wiki-Link-Configurations
   dokuwiki_target_wiki: ''
   dokuwiki_target_interwiki: ''
   dokuwiki_target_extern: ''
   dokuwiki_target_media: ''
   dokuwiki_target_windows: '' 
 
-  #Stuvus-Wiki-Ldap-Configurations
+  #Wiki-Ldap-Configurations
   dokuwiki_ldap_port: ''
   dokuwiki_ldap_server: ''
-  ldap_usertree: 'ou=People, dc=server, dc=tld'
-  ldap_grouptree: 'ou=Group, dc=server, dc=tld'
-  ldap_userfilter: '(&(uid=%{user})(objectClass=posixAccount))'
-  ldap_groupfilter: '(&(objectClass=posixGroup)(|(gidNumber=%{gid})(memberUID=%{user})))'
+  dokuwiki_ldap_usertree: 'ou=People, dc=server, dc=tld'
+  dokuwiki_ldap_grouptree: 'ou=Group, dc=server, dc=tld'
+  dokuwiki_ldap_userfilter: '(&(uid=%{user})(objectClass=posixAccount))'
+  dokuwiki_ldap_groupfilter: '(&(objectClass=posixGroup)(|(gidNumber=%{gid})(memberUID=%{user})))'
+  dokuwiki_openregister: ''
