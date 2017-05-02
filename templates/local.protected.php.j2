@@ -20,4 +20,4 @@ $conf['auth']['ldap']['usertree']    = {{ dokuwiki_ldap_usertree}}  #'ou=People,
 $conf['auth']['ldap']['grouptree']   = {{ dokuwiki_ldap_grouptree }} #'ou=Group, dc=server, dc=tld';
 $conf['auth']['ldap']['userfilter']  = {{ dokuwiki_ldap_userfilter }} #'(&(uid=%{user})(objectClass=posixAccount))';
 $conf['auth']['ldap']['groupfilter'] = {{ dokuwiki_ldap_groupfilter}} #'(&(objectClass=posixGroup)(|(gidNumber=%{gid})(memberUID=%{user})))';
- 
+#$conf['auth']['ldap']['version']    = {{ dokuwiki_ldap_version }} #3;
