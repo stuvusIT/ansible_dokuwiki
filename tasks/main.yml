@@ -1,9 +1,17 @@
 ---
 - unarchive:
-
     src: https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
     dest: /srv/
     remote_src: True
 
+- name: Install xml-php package used by dokuwiki.
+  apt:
+    name: php7.0-xml
+  when: ansible_pkg_mgr == "apt"
+
+- name: Fix permissions
+  shell: chown -R www-data /srv/dokuwiki-2017-02-19b/*
+
 - include: configure.yml
 
+ 
