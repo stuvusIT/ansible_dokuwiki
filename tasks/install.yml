@@ -11,14 +11,13 @@
     remote_src: yes
     list_files: yes
   register: file_list
-- name: debug
-  debug: file_list
 
 - name: remove stupid version name from folder path
   file:
-    src: /srv/{file_list[0]}
+    src: /srv/{{ file_list['files'][0] }}
     dest: /srv/dokuwiki
     owner: www-data
+    state: link
 
 - name: Install xml-php package used by dokuwiki.
   apt:

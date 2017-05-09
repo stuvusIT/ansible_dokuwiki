@@ -43,3 +43,4 @@ pools:
     user: www-data
     pm: static
     pm_max_children: 20
+    php_ini_values: []
