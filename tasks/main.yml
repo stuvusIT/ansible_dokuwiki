@@ -2,7 +2,7 @@
 - unarchive:
     src: https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
     dest: /srv/
-    remote_src: True
+    remote_src: yes
 
 - name: Install xml-php package used by dokuwiki.
   apt:

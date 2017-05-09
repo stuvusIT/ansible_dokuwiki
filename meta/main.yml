@@ -1,6 +1,6 @@
 galaxy_info:
   author: Florian Greinert
-  description: This role will install an configure the dokuwiki 	without migration of content. 
+  description: This role will install an configure the dokuwiki without migration of content.
   company: stuvus (https://stuvus.uni-stuttgart.de)
 
   license: CC-BY-SA
@@ -19,6 +19,6 @@ galaxy_info:
     - stuvus
     - dokuwiki
 
-dependencies:
-  - { role: php-fpm }
-  - { role: nginx }
+dependencies: []
+  #  - { role: stuvusIT.php-fpm }
+  #  - { role: stuvusIT.nginx }
