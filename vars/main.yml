@@ -3,8 +3,8 @@ domain_prefixes:
 served_domains:
   - domains: 
     - wiki
-    # privkey_path: <path at target server>  # privkey.pem will placed there>
-    # fullchain_path: <path at target server>  # fullchain.pem will placed there>
+    privkey_path: /etc/ssl/privkey.pem # privkey.pem will placed there>
+    fullchain_path: /etc/ssl/fullchain.pem  # fullchain.pem will placed there>
     default_server: true
     allowed_ip_ranges:
       - 172.27.10.0/24
@@ -36,7 +36,7 @@ served_domains:
           include fastcgi_params;
           fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
           fastcgi_param REDIRECT_STATUS 200;
-          fastcgi_pass unix:/run/php/php7.0-fpm.sock;pools:
+          fastcgi_pass unix:/run/php/php7.0-fpm.sock;
 pools:
   - name: fpm-host
     listen: /run/php/php7.0-fpm.sock
