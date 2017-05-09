@@ -1,6 +1,0 @@
-pools:
-  - name: fpm-host
-    listen: /run/php/php7.0-fpm.sock
-    user: www-data
-    pm: static
-    pm_max_children: 20
