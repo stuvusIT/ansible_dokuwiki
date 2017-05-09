@@ -37,6 +37,7 @@ served_domains:
           fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
           fastcgi_param REDIRECT_STATUS 200;
           fastcgi_pass unix:/run/php/php7.0-fpm.sock;pools:
+pools:
   - name: fpm-host
     listen: /run/php/php7.0-fpm.sock
     user: www-data
