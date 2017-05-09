@@ -1,0 +1,39 @@
+domain_prefixes:
+  - www
+served_domains:
+  - domains: 
+    - wiki
+    privkey_path: <path at target server>  # privkey.pem will placed there>
+    fullchain_path: <path at target server>  # fullchain.pem will placed there>
+    default_server: true
+    allowed_ip_ranges:
+      - 172.27.10.0/24
+      - 172.27.100.0/24
+    https: true
+    root: /srv/dokuwiki-2017-02-19b
+    index_files:
+      - index.php
+    locations:
+      - condition: ~ /(data/|conf/|bin/|inc/|install.php) 
+        content:
+        | 
+          deny all;
+      - condition: /
+        content:
+        | 
+         try_files $uri $uri/ @dokuwiki;
+      - condition: @dokuwiki
+        content:
+        | 
+          rewrite ^/_media/(.*) /lib/exe/fetch.php?media=$1 last;
+          rewrite ^/_detail/(.*) /lib/exe/detail.php?media=$1 last;
+          rewrite ^/_export/([^/]+)/(.*) /doku.php?do=export_$1&id=$2 last;
+          rewrite ^/(.*) /doku.php?id=$1&$args last;
+      - condition: ~ \.php$
+        content:
+        |
+          try_files $uri $uri/ /doku.php;
+          include fastcgi_params;
+          fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+          fastcgi_param REDIRECT_STATUS 200;
+          fastcgi_pass unix:/run/php/php7.0-fpm.sock;

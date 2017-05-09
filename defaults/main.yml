@@ -24,7 +24,7 @@
   dokuwiki_breadcrums: 10
   dokuwiki_youarehere: 0
   dokuwiki_fullpath: 0
-  dokuwiki_typography:
+  dokuwiki_typography: 0
   dokuwiki_dformat: '%Y/%m/%d %H:%M'
   dokuwiki_signature: '--- //[[@MAIL@|@NAME@]] @DATE@//)'
   dokuwiki_showuseras: 'username'
@@ -42,8 +42,8 @@
   dokuwiki_useacl: 0
   dokuwiki_autopasswd: 1
   dokuwiki_authtype: 'ldap'
-  dokuwiki_passcrypt: sha1 #(smd5,md5,sha1,ssha,crypt,mysql,my411)
-  dokuwiki_defaultgroup: user
+  dokuwiki_passcrypt: 'crypt' #(smd5,md5,sha1,ssha,crypt,mysql,my411)
+  dokuwiki_defaultgroup: 'user'
   dokuwiki_superuser: 
   dokuwiki_manager:
   dokuwiki_profileconfirm: 1
