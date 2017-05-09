@@ -98,7 +98,7 @@ $conf['target']['windows']   = '{{ dokuwiki_target_windows }}';
 $conf['mediarevisions'] = {{ dokuwiki_mediarevisions }};//enable/disable media revisions
 $conf['refcheck']    = {{ dokuwiki_refcheck }};   //check for references before deleting media files
 $conf['gdlib']       = {{ dokuwiki_gdlib }};      //the GDlib version (0, 1 or 2) 2 tries to autodetect
-$conf['im_convert']  = {{ dokuwiki_im_convert }}; //path to ImageMagicks convert (will be used instead of GD)
+$conf['im_convert']  = '{{ dokuwiki_im_convert }}'; //path to ImageMagicks convert (will be used instead of GD)
 $conf['jpg_quality'] = {{ dokuwiki_jpg_quality }};//quality of compression when scaling jpg images (0-100)
 $conf['fetchsize']   = {{ dokuwiki_fetchsize }};  //maximum size (bytes) fetch_php may download from extern, disabled by default
 
