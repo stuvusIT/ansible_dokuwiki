@@ -3,14 +3,14 @@ domain_prefixes:
 served_domains:
   - domains: 
     - wiki
-    privkey_path: <path at target server>  # privkey.pem will placed there>
-    fullchain_path: <path at target server>  # fullchain.pem will placed there>
+    # privkey_path: <path at target server>  # privkey.pem will placed there>
+    # fullchain_path: <path at target server>  # fullchain.pem will placed there>
     default_server: true
     allowed_ip_ranges:
       - 172.27.10.0/24
       - 172.27.100.0/24
     https: true
-    root: /srv/dokuwiki-2017-02-19b
+    root: /srv/dokuwiki
     index_files:
       - index.php
     locations:
