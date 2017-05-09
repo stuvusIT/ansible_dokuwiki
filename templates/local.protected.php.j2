@@ -13,10 +13,10 @@ $conf['useacl']      = '{{ dokuwiki_useacl }}';
 $conf['openregister']= '{{ dokuwiki_openregister}}';
 $conf['authtype']    = '{{ dokuwiki_authtype }}';
  
-$conf['auth']['ldap']['port']        = '{{ dokuwiki_ldap_port }}';
-$conf['auth']['ldap']['server']      = '{{ dokuwiki_ldap_server }}'; #instead of the above two settings
-$conf['auth']['ldap']['usertree']    = '{{ dokuwiki_ldap_usertree}}';  #'ou=People, dc=server, dc=tld'
-$conf['auth']['ldap']['grouptree']   = '{{ dokuwiki_ldap_grouptree }}'; #'ou=Group, dc=server, dc=tld'
-$conf['auth']['ldap']['userfilter']  = '{{ dokuwiki_ldap_userfilter }}'; #'(&(uid=%{user})(objectClass=posixAccount))'
-$conf['auth']['ldap']['groupfilter'] = '{{ dokuwiki_ldap_groupfilter}}'; #'(&(objectClass=posixGroup)(|(gidNumber=%{gid})(memberUID=%{user})))'
-#$conf['auth']['ldap']['version']    = {{ dokuwiki_ldap_version }}; #3
+$conf['plugin']['authldap']['port']        = '{{ dokuwiki_ldap_port }}';
+$conf['plugin']['authldap']['server']      = '{{ dokuwiki_ldap_server }}'; #instead of the above two settings
+$conf['plugin']['authldap']['usertree']    = '{{ dokuwiki_ldap_usertree}}';  #'ou=People, dc=server, dc=tld'
+$conf['plugin']['authldap']['grouptree']   = '{{ dokuwiki_ldap_grouptree }}'; #'ou=Group, dc=server, dc=tld'
+$conf['plugin']['authldap']['userfilter']  = '{{ dokuwiki_ldap_userfilter }}'; #'(&(uid=%{user})(objectClass=posixAccount))'
+$conf['plugin']['authldap']['groupfilter'] = '{{ dokuwiki_ldap_groupfilter}}'; #'(&(objectClass=posixGroup)(|(gidNumber=%{gid})(memberUID=%{user})))'
+#$conf['authldap']['version']    = {{ dokuwiki_ldap_version }}; #3

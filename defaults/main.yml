@@ -41,7 +41,7 @@
   #Wiki-Auth-Configurations
   dokuwiki_useacl: 0
   dokuwiki_autopasswd: 1
-  dokuwiki_authtype: 'ldap'
+  dokuwiki_authtype: 'authldap'
   dokuwiki_passcrypt: 'crypt' #(smd5,md5,sha1,ssha,crypt,mysql,my411)
   dokuwiki_defaultgroup: 'user'
   dokuwiki_superuser: 
@@ -134,8 +134,8 @@
   #Wiki-Ldap-Configurations
   dokuwiki_ldap_port: ''
   dokuwiki_ldap_server: 'ldaps://ldap01.faveve.uni-stuttgart.de:636'
-  dokuwiki_ldap_usertree: 'dc=faveve, dc=uni-stuttgart, dc=de'
-  dokuwiki_ldap_grouptree: 'dc=faveve, dc=uni-stuttgart, dc=de'
+  dokuwiki_ldap_usertree: 'dc=faveve,dc=uni-stuttgart,dc=de'
+  dokuwiki_ldap_grouptree: 'dc=faveve,dc=uni-stuttgart,dc=de'
   dokuwiki_ldap_userfilter: '(&(uid=%{user})(objectClass=posixAccount))'
   dokuwiki_ldap_groupfilter: '(&(objectClass=posixGroup)(|(gidNumber=%{gid})(memberUID=%{user})))'
   dokuwiki_ldap_version: '3'
