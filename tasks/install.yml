@@ -23,3 +23,9 @@
   apt:
     name: php7.0-xml
   when: ansible_pkg_mgr == "apt"
+
+- name: Copy Logo to Server
+  copy:
+    src: files/logo.png
+    dest: /srv/dokuwiki/data/media/wiki/logo.png
+    owner: www-data
