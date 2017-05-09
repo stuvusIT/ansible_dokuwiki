@@ -9,7 +9,7 @@ served_domains:
     allowed_ip_ranges:
       - 172.27.10.0/24
       - 172.27.100.0/24
-    https: true
+    https: false
     root: /srv/dokuwiki
     index_files:
       - index.php
