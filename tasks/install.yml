@@ -21,7 +21,10 @@
 
 - name: Install xml-php package used by dokuwiki.
   apt:
-    name: php7.0-xml
+    name: "{{ item }}"
+  with_items:
+    - php-ldap
+    - php-xml
   when: ansible_pkg_mgr == "apt"
 
 - name: Copy Logo to Server
@@ -29,3 +32,19 @@
     src: files/logo.png
     dest: /srv/dokuwiki/data/media/wiki/logo.png
     owner: www-data
+
+- name: Remove default plugins
+  file:
+    src: '/srv/dokuwiki/lib/plugins/{{ item }}'
+    state: absent
+  with_items:
+    - authpdo
+    - authmysql
+    - authpgsql
+    - authplain
+    - authad
+
+- name: set acls
+  copy:
+    src: 'files/acl.auth.php'
+    dest: '/src/dokuwiki/conf/acl.auth.php'

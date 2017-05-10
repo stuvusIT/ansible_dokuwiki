@@ -44,7 +44,7 @@
   dokuwiki_authtype: 'authldap'
   dokuwiki_passcrypt: 'crypt' #(smd5,md5,sha1,ssha,crypt,mysql,my411)
   dokuwiki_defaultgroup: 'user'
-  dokuwiki_superuser: 
+  dokuwiki_superuser: '@faveve-it'
   dokuwiki_manager:
   dokuwiki_profileconfirm: 1
   dokuwiki_rememberme: 1
@@ -140,4 +140,4 @@
   dokuwiki_ldap_groupfilter: '(&(objectClass=posixGroup)(|(gidNumber=%{gid})(memberUID=%{user})))'
   dokuwiki_ldap_version: '3'
 
-  dokuwiki_openregister: ''
+  dokuwiki_openregister: '0'
