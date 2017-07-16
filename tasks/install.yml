@@ -47,4 +47,4 @@
 - name: set acls
   copy:
     src: 'files/acl.auth.php'
-    dest: '/src/dokuwiki/conf/acl.auth.php'
+    dest: '/srv/dokuwiki/conf/acl.auth.php'
