@@ -2,14 +2,14 @@
 - name: template for dokuwiki main-config file.
   template:
     src: templates/local.php.j2
-    dest: /srv/dokuwiki/conf/local.php
+    dest: "{{ dokuwiki_install_path }}/conf/local.php"
   
 - name: template for plugins.
   template: 
     src: templates/plugins.local.php.j2
-    dest: /srv/dokuwiki/conf/plugins.local.php
+    dest: "{{ dokuwiki_install_path }}/conf/plugins.local.php"
 
 - name: template for protected configurations.
   template: 
     src: templates/local.protected.php.j2
-    dest: /srv/dokuwiki/conf/local.protected.php
+    dest: '{{ dokuwiki_install_path }}/conf/local.protected.php'

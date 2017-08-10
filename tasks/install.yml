@@ -3,10 +3,11 @@
   get_url:
     url: https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
     dest: /tmp/dokuwiki-stable.tgz
-- name: unarchive dokuwiki-stable.tgz to /srv/dokuwiki
+ 
+- name: unarchive dokuwiki-stable.tgz to {{ dokuwiki_install_path }}
   unarchive:
     src: /tmp/dokuwiki-stable.tgz
-    dest: /srv/
+    dest: "{{ dokuwiki_install_path }}/../"
     owner: www-data
     remote_src: yes
     list_files: yes
@@ -14,8 +15,8 @@
 
 - name: remove stupid version name from folder path
   file:
-    src: /srv/{{ file_list['files'][0] }}
-    dest: /srv/dokuwiki
+    src: "{{ dokuwiki_install_path }}/../{{ file_list['files'][0] }}"
+    dest: "{{ dokuwiki_install_path }}"
     owner: www-data
     state: link
 
@@ -30,12 +31,12 @@
 - name: Copy Logo to Server
   copy:
     src: files/logo.png
-    dest: /srv/dokuwiki/data/media/wiki/logo.png
+    dest: "{{dokuwiki_install_path}}/data/media/wiki/logo.png"
     owner: www-data
 
 - name: Remove default plugins
   file:
-    path: '/srv/dokuwiki/lib/plugins/{{ item }}'
+    path: '{{dokuwiki_install_path}}/lib/plugins/{{ item }}'
     state: absent
   with_items:
     - authpdo
@@ -47,11 +48,18 @@
 - name: set acls
   copy:
     src: 'files/acl.auth.php'
-    dest: '/srv/dokuwiki/conf/acl.auth.php'
+    dest: '{{dokuwiki_install_path}}/conf/acl.auth.php'
+
+- name: copy data 
+  synchronize:
+    src: '{{ dokuwiki_data_dir }}'
+    dest: '{{dokuwiki_install_path}}/data'
+  when: dokuwiki_data_dir is defined
 
 - name: Fix ldap connections for »ldaps://« server uri
   lineinfile:
     line: "if(substr($this->getConf('server'),0,8) == 'ldaps://') { @ldap_start_tls($this->con); }"
     state: present
     insertafter: '// needs version 3'
-    path: /srv/dokuwiki/lib/plugins/authldap/auth.php
+    path: "{{ dokuwiki_install_path }}/lib/plugins/authldap/auth.php"
+

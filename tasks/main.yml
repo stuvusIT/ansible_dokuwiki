@@ -1,5 +1,12 @@
 ---
+- name: check if installed
+  stat:
+    path: /var/www/wordpress
+  register: dokuwiki_dir_exists
 - include: install.yml
+  when: not dokuwiki_dir_exists.stat.exists
+- include: update.yml
+  when: dokuwiki_dir_exists.stat.exists
 - include: configure.yml
 
  
