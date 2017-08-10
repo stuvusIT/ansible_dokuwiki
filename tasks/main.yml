@@ -1,7 +1,7 @@
 ---
 - name: check if installed
   stat:
-    path: /var/www/wordpress
+    path: "{{ dokuwiki_install_path }}"
   register: dokuwiki_dir_exists
 - include: install.yml
   when: not dokuwiki_dir_exists.stat.exists

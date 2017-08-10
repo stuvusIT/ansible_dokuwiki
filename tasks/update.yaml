@@ -16,7 +16,7 @@
 - name: unarchive dokuwiki-stable.tgz to {{ dokuwiki_install_path }}
   unarchive:
     src: /tmp/dokuwiki
-    dest: "{{ dokuwiki_install_path }}/../"
+    dest: "{{ dokuwiki_install_path | dirname }}"
     owner: www-data
     remote_src: yes
     list_files: yes

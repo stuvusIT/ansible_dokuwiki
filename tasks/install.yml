@@ -7,7 +7,7 @@
 - name: unarchive dokuwiki-stable.tgz to {{ dokuwiki_install_path }}
   unarchive:
     src: /tmp/dokuwiki-stable.tgz
-    dest: "{{ dokuwiki_install_path }}/../"
+    dest: "{{ dokuwiki_install_path }} | dirname"
     owner: www-data
     remote_src: yes
     list_files: yes
@@ -15,7 +15,7 @@
 
 - name: remove stupid version name from folder path
   file:
-    src: "{{ dokuwiki_install_path }}/../{{ file_list['files'][0] }}"
+    src: "{{ dokuwiki_install_path | dirname }}/{{ file_list['files'][0] }}"
     dest: "{{ dokuwiki_install_path }}"
     owner: www-data
     state: link
