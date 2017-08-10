@@ -48,3 +48,10 @@
   copy:
     src: 'files/acl.auth.php'
     dest: '/srv/dokuwiki/conf/acl.auth.php'
+
+- name: Fix ldap connections for »ldaps://« server uri
+  lineinfile:
+    line: "if(substr($this->getConf('server'),0,8) == 'ldaps://') { @ldap_start_tls($this->con); }"
+    state: present
+    insertafter: '// needs version 3'
+    path: /srv/dokuwiki/lib/plugins/authldap/auth.php
