@@ -1,5 +1,7 @@
+
 <?php
 #{{ ansible_managed }}
+
 /**
  * This is an example of how a local.php could look like.
  * Simply copy the options you want to change from dokuwiki.php
@@ -20,3 +22,4 @@ $conf['plugin']['authldap']['grouptree']   = '{{ dokuwiki_ldap_grouptree }}'; #'
 $conf['plugin']['authldap']['userfilter']  = '{{ dokuwiki_ldap_userfilter }}'; #'(&(uid=%{user})(objectClass=posixAccount))'
 $conf['plugin']['authldap']['groupfilter'] = '{{ dokuwiki_ldap_groupfilter}}'; #'(&(objectClass=posixGroup)(|(gidNumber=%{gid})(memberUID=%{user})))'
 $conf['authldap']['version']    = {{ dokuwiki_ldap_version }}; #3
+

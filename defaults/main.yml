@@ -3,9 +3,8 @@
   ## See conf file for the specifications of all those variable names. 
 
   dokuwiki_install_path: /srv/dokuwiki
-
   #Wiki-Configurations
-  dokuwiki_title: ''
+  dokuwiki_title: 'Wiki'
   dokuwiki_start: 'Startseite'
   dokuwiki_language: 'de'
   dokuwiki_template: 'dokuwiki'
@@ -26,7 +25,9 @@
   dokuwiki_breadcrums: 10
   dokuwiki_youarehere: 0
   dokuwiki_fullpath: 0
+
   dokuwiki_typography: 0
+
   dokuwiki_dformat: '%Y/%m/%d %H:%M'
   dokuwiki_signature: '--- //[[@MAIL@|@NAME@]] @DATE@//)'
   dokuwiki_showuseras: 'username'
@@ -135,6 +136,7 @@
 
   #Wiki-Ldap-Configurations
   dokuwiki_ldap_port: ''
+
   dokuwiki_ldap_server: 'ldaps://ldap01.faveve.uni-stuttgart.de:636'
   dokuwiki_ldap_usertree: 'dc=faveve,dc=uni-stuttgart,dc=de'
   dokuwiki_ldap_grouptree: 'dc=faveve,dc=uni-stuttgart,dc=de'
@@ -143,3 +145,4 @@
   dokuwiki_ldap_version: '3'
 
   dokuwiki_openregister: '0'
+
