@@ -1,4 +1,5 @@
 # acl.auth.php
+# {{ansible_managed}}
 # <?php exit()?>
 # Don't modify the lines above
 #

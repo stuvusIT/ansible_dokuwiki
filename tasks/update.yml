@@ -1,10 +1,10 @@
 ---
-- name: download latest dokuwiki
+- name: Download latest dokuwiki
   get_url:
     url: https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
     dest: /tmp/dokuwiki-stable.tgz
  
-- name: unarchive dokuwiki-stable.tgz to /srv/dokuwiki
+- name: Unarchive dokuwiki-stable.tgz to /srv/dokuwiki
   unarchive:
     src: /tmp/dokuwiki-stable.tgz
     dest: /tmp/dokuwiki
@@ -13,7 +13,7 @@
     list_files: yes
   register: file_list
 
-- name: unarchive dokuwiki-stable.tgz to {{ dokuwiki_install_path }}
+- name: Unarchive dokuwiki-stable.tgz to {{ dokuwiki_install_path }}
   unarchive:
     src: /tmp/dokuwiki
     dest: "{{ dokuwiki_install_path | dirname }}"
@@ -22,4 +22,10 @@
     list_files: yes
   when: "{{ lookup('file', '/tmp/dokuwiki/VERSION')  != lookup('file', '{{ dokuwiki_install_path }}/VERSION') }}"
 
-- debug: msg="{{ file_list }}"
+- name: Install xml-php package used by dokuwiki.
+  apt:
+    name: "{{ item }}"
+    with_items:
+        - php-ldap
+        - php-xml
+  when: ansible_pkg_mgr == "apt"

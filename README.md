@@ -9,6 +9,8 @@ This role needs an apt based packager manager.
 
 ## Role Variables
 
+If you set useacl to 1 you can place a acl.auth.php in the hosts file folder in your repository it will be copied over.
+Same is if you set dokuwiki_custom_logo to true, then you can place a logo.png in the file folder and it will be copied.
 To see all vars possible for dokuwiki see 
 [dokuwiki config page](https://www.dokuwiki.org/config)
 

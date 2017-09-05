@@ -1,10 +1,10 @@
 ---
-- name: download latest dokuwiki
+- name: Download latest dokuwiki
   get_url:
     url: https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
     dest: /tmp/dokuwiki-stable.tgz
  
-- name: unarchive dokuwiki-stable.tgz to {{ dokuwiki_install_path }}
+- name: Unarchive dokuwiki-stable.tgz to {{ dokuwiki_install_path }}
   unarchive:
     src: /tmp/dokuwiki-stable.tgz
     dest: "{{ dokuwiki_install_path | dirname }}"
@@ -13,7 +13,7 @@
     list_files: yes
   register: file_list
 
-- name: remove stupid version name from folder path
+- name: Version name from folder path
   file:
     src: "{{ dokuwiki_install_path | dirname }}/{{ file_list['files'][0] }}"
     dest: "{{ dokuwiki_install_path }}"
@@ -30,9 +30,10 @@
 
 - name: Copy Logo to Server
   copy:
-    src: files/logo.png
+    src: "{{inventory_hostname}}/logo.png"
     dest: "{{dokuwiki_install_path}}/data/media/wiki/logo.png"
     owner: www-data
+  when: dokuwiki_custom_logo is defined
 
 - name: Remove default plugins
   file:
@@ -45,12 +46,13 @@
     - authplain
     - authad
 
-- name: set acls
+- name: Set acls
   copy:
-    src: 'files/acl.auth.php'
+    src: '{{inventory_hostname}}/acl.auth.php'
     dest: '{{dokuwiki_install_path}}/conf/acl.auth.php'
+  when: dokuwiki_useacl == 1
 
-- name: copy data 
+- name: Copy data 
   synchronize:
     src: '{{ dokuwiki_data_dir }}'
     dest: '{{dokuwiki_install_path}}/data'

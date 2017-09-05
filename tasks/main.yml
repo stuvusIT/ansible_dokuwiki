@@ -1,5 +1,5 @@
 ---
-- name: check if installed
+- name: Check whether dokuwiki is already installed
   stat:
     path: "{{ dokuwiki_install_path }}"
   register: dokuwiki_dir_exists
