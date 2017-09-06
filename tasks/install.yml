@@ -1,4 +1,10 @@
 ---
+- name: Update apt repositories cache
+  apt:
+    update_cache: yes
+  changed_when: false
+  when: ansible_pkg_mgr == "apt"
+
 - name: Download latest dokuwiki
   get_url:
     url: https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
