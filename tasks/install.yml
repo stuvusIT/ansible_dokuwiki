@@ -22,16 +22,12 @@
 
 - name: Install php-xml and package used by dokuwiki.
   apt:
-    name: "{{ item }}"
-  with_items:
-    - php-xml
+    name: "php-xml"
   when: ansible_pkg_mgr == "apt"
 
 - name: Install php-ldap package used by dokuwiki.
   apt:
-    name: "{{ item }}"
-  with_items:
-    - php-ldap
+    name: "php-ldap"
   when: ansible_pkg_mgr == "apt" and dokuwiki_authtype == "authldap"
 
 - name: Copy Logo to Server
