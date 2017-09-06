@@ -13,20 +13,26 @@
     list_files: yes
   register: file_list
 
-- name: Version name from folder path
+- name: Remove version name from folder path
   file:
     src: "{{ dokuwiki_install_path | dirname }}/{{ file_list['files'][0] }}"
     dest: "{{ dokuwiki_install_path }}"
     owner: www-data
     state: link
 
-- name: Install xml-php package used by dokuwiki.
+- name: Install php-xml and package used by dokuwiki.
+  apt:
+    name: "{{ item }}"
+  with_items:
+    - php-xml
+  when: ansible_pkg_mgr == "apt"
+
+- name: Install php-ldap package used by dokuwiki.
   apt:
     name: "{{ item }}"
   with_items:
     - php-ldap
-    - php-xml
-  when: ansible_pkg_mgr == "apt"
+  when: ansible_pkg_mgr == "apt" and dokuwiki_authtype == "authldap"
 
 - name: Copy Logo to Server
   copy:
@@ -43,7 +49,6 @@
     - authpdo
     - authmysql
     - authpgsql
-    - authplain
     - authad
 
 - name: Set acls

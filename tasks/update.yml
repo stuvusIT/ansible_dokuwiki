@@ -22,10 +22,18 @@
     list_files: yes
   when: "{{ lookup('file', '/tmp/dokuwiki/VERSION')  != lookup('file', '{{ dokuwiki_install_path }}/VERSION') }}"
 
-- name: Install xml-php package used by dokuwiki.
+- name: Update php-xml package used by dokuwiki.
   apt:
     name: "{{ item }}"
+    state: latest
     with_items:
-        - php-ldap
         - php-xml
   when: ansible_pkg_mgr == "apt"
+
+- name: Update php-ldap package used by dokuwiki.
+  apt:
+    name: "{{ item }}"
+    state: latest
+    with_items:
+        - php-ldap
+  when: ansible_pkg_mgr == "apt" and dokuwiki_authtype == "authldap"
