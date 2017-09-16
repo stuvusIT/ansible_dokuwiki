@@ -1,0 +1,74 @@
+---
+- name: Update apt repositories cache
+  apt:
+    update_cache: yes
+  changed_when: false
+  when: ansible_pkg_mgr == "apt"
+
+- name: Download latest dokuwiki
+  get_url:
+    url: https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
+    dest: /tmp/dokuwiki-stable.tgz
+ 
+- name: Unarchive dokuwiki-stable.tgz to {{ dokuwiki_install_path }}
+  unarchive:
+    src: /tmp/dokuwiki-stable.tgz
+    dest: "{{ dokuwiki_install_path | dirname }}"
+    owner: www-data
+    remote_src: yes
+    list_files: yes
+  register: file_list
+
+- name: Remove version name from folder path
+  file:
+    src: "{{ dokuwiki_install_path | dirname }}/{{ file_list['files'][0] }}"
+    dest: "{{ dokuwiki_install_path }}"
+    owner: www-data
+    state: link
+
+- name: Install php-xml and package used by dokuwiki.
+  apt:
+    name: "php-xml"
+  when: ansible_pkg_mgr == "apt"
+
+- name: Install php-ldap package used by dokuwiki.
+  apt:
+    name: "php-ldap"
+  when: ansible_pkg_mgr == "apt" and dokuwiki_authtype == "authldap"
+
+- name: Copy Logo to Server
+  copy:
+    src: "{{inventory_hostname}}/logo.png"
+    dest: "{{dokuwiki_install_path}}/data/media/wiki/logo.png"
+    owner: www-data
+  when: dokuwiki_custom_logo is defined
+
+- name: Remove default plugins
+  file:
+    path: '{{dokuwiki_install_path}}/lib/plugins/{{ item }}'
+    state: absent
+  with_items:
+    - authpdo
+    - authmysql
+    - authpgsql
+    - authad
+
+- name: Set acls
+  copy:
+    src: '{{inventory_hostname}}/acl.auth.php'
+    dest: '{{dokuwiki_install_path}}/conf/acl.auth.php'
+  when: dokuwiki_useacl == 1
+
+- name: Copy data 
+  synchronize:
+    src: '{{ dokuwiki_data_dir }}'
+    dest: '{{dokuwiki_install_path}}/data'
+  when: dokuwiki_data_dir is defined
+
+- name: Fix ldap connections for »ldaps://« server uri
+  lineinfile:
+    line: "if(substr($this->getConf('server'),0,8) == 'ldaps://') { @ldap_start_tls($this->con); }"
+    state: present
+    insertafter: '// needs version 3'
+    path: "{{ dokuwiki_install_path }}/lib/plugins/authldap/auth.php"
+
