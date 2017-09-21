@@ -19,7 +19,5 @@ galaxy_info:
     - stuvus
     - dokuwiki
 
-dependencies:
-    - { role: stuvusIT.php-fpm }
-    - { role: stuvusIT.nginx }
+dependencies: []
 
