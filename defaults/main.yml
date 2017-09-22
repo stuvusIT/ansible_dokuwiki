@@ -48,14 +48,15 @@
   dokuwiki_passcrypt: 'crypt' #(smd5,md5,sha1,ssha,crypt,mysql,my411)
   dokuwiki_defaultgroup: 'user'
   dokuwiki_superuser: 'admin'
-  dokuwiki_manager:
+  dokuwiki_manager: ""
   dokuwiki_profileconfirm: 1
   dokuwiki_rememberme: 1
   dokuwiki_disableactions: ''
   dokuwiki_auth_security_timeout: 900
   dokuwiki_securecookie: 1
   dokuwiki_remote: 0
-  dokuwiki_remoteuser: 
+  dokuwiki_remoteuser: ""
+  dokuwiki_openregister: 0
   
   #Wiki-Antispam-Configurations
   dokuwiki_usewordblock: 1
