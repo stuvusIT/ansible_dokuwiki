@@ -4,7 +4,7 @@
     url: https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
     dest: /tmp/dokuwiki-stable.tgz
  
-- name: Unarchive dokuwiki-stable.tgz to /srv/dokuwiki
+- name: Unarchive dokuwiki-stable.tgz to /tmp/dokuwiki
   unarchive:
     src: /tmp/dokuwiki-stable.tgz
     dest: /tmp/dokuwiki
@@ -13,6 +13,9 @@
     list_files: yes
   register: file_list
 
+- debug:
+    msg: {{ file_list  | select("match", "*VERSION*")  }}
+
 - name: Unarchive dokuwiki-stable.tgz to {{ dokuwiki_install_path }}
   unarchive:
     src: /tmp/dokuwiki
@@ -20,5 +23,5 @@
     owner: www-data
     remote_src: yes
     list_files: yes
-  when: "{{ lookup('file', '/tmp/dokuwiki/VERSION')  != lookup('file', '{{ dokuwiki_install_path }}/VERSION') }}"
+  when: "lookup('file', '/tmp/dokuwiki/VERSION')  != lookup('file', 'dokuwiki_install_path/VERSION')"
 

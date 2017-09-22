@@ -5,4 +5,9 @@
  * This file configures the default states of available plugins. All settings in
  * the plugins.*.php files will override those here.
  */
+{% if dokuwiki_authtype=="authldap" %}
 $plugins['ldap'] = 1;
+{% else %}
+$plugins['ldap'] = 0;
+{% endif %}
+

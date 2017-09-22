@@ -26,7 +26,7 @@
     owner: www-data
     state: link
 
-- name: Install php-xml and package used by dokuwiki.
+- name: Install php-xml and php-gd package used by dokuwiki.
   apt:
     name: "{{item}}"
   when: ansible_pkg_mgr == "apt"
