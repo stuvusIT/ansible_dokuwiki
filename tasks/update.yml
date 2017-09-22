@@ -3,7 +3,12 @@
   get_url:
     url: https://download.dokuwiki.org/src/dokuwiki/dokuwiki-stable.tgz
     dest: /tmp/dokuwiki-stable.tgz
- 
+
+- name: Create tmp dir for dokuwiki
+  file:
+    state: directory
+    path: /tmp/dokuwiki
+
 - name: Unarchive dokuwiki-stable.tgz to /srv/dokuwiki
   unarchive:
     src: /tmp/dokuwiki-stable.tgz
@@ -15,7 +20,7 @@
 
 - name: Unarchive dokuwiki-stable.tgz to {{ dokuwiki_install_path }}
   unarchive:
-    src: /tmp/dokuwiki
+    src: /tmp/dokuwiki-stable.tgz
     dest: "{{ dokuwiki_install_path | dirname }}"
     owner: www-data
     remote_src: yes
