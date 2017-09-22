@@ -13,6 +13,16 @@
     list_files: yes
   register: file_list
 
+- name: Get stats from new version file
+  stat:
+    path: "/tmp/dokuwiki/{{file_list.files[0]}}VERSION"
+  register: new_version
+
+- name: Get stats from old version file
+  stat:
+    path: "{{dokuwiki_install_path}}/VERSION"
+  register: old_version
+
 - name: Unarchive dokuwiki-stable.tgz to {{ dokuwiki_install_path }}
   unarchive:
     src: /tmp/dokuwiki
@@ -20,5 +30,5 @@
     owner: www-data
     remote_src: yes
     list_files: yes
-  when: "{{ lookup('file', '/tmp/dokuwiki/VERSION')  != lookup('file', '{{ dokuwiki_install_path }}/VERSION') }}"
+  when: new_version.stat.checksum != old_version.stat.checksum
 
