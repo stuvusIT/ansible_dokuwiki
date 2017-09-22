@@ -3,10 +3,12 @@
   stat:
     path: "{{ dokuwiki_install_path }}"
   register: dokuwiki_dir_exists
+
 - include: install.yml
   when: not dokuwiki_dir_exists.stat.exists
+
 - include: update.yml
   when: dokuwiki_dir_exists.stat.exists
-- include: configure.yml
 
+- include: configure.yml
 
