@@ -28,8 +28,11 @@
 
 - name: Install php-xml and package used by dokuwiki.
   apt:
-    name: "php-xml"
+    name: "{{item}}"
   when: ansible_pkg_mgr == "apt"
+  with_items:
+    - php-xml
+    - php-gd
 
 - name: Install php-ldap package used by dokuwiki.
   apt:
