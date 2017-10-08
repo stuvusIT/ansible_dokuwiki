@@ -4,11 +4,10 @@
     path: "{{ dokuwiki_install_path }}"
   register: dokuwiki_dir_exists
 
-- include: install.yml
+- import_tasks: install.yml
   when: not dokuwiki_dir_exists.stat.exists
 
-- include: update.yml
+- import_tasks: update.yml
   when: dokuwiki_dir_exists.stat.exists
 
-- include: configure.yml
-
+- import_tasks: configure.yml
