@@ -1,3 +1,4 @@
+---
 galaxy_info:
   author: Florian Greinert, Fritz Otlinghaus, Markus Mroch
   description: This role will install an configure the dokuwiki without migration of content.
