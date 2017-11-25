@@ -3,17 +3,44 @@
   template:
     src: templates/local.php.j2
     dest: "{{ dokuwiki_install_path }}/conf/local.php"
-
   
 - name: template for plugins.
   template: 
     src: templates/plugins.local.php.j2
-
     dest: "{{ dokuwiki_install_path }}/conf/plugins.local.php"
 
 - name: template for protected configurations.
   template: 
     src: templates/local.protected.php.j2
-
     dest: '{{ dokuwiki_install_path }}/conf/local.protected.php'
 
+- name: Configure acls
+  template: 
+    src: templates/acl.auth.php.j2
+    dest: '{{ dokuwiki_install_path }}/conf/acl.auth.php'
+  when: dokuwiki_useacl == 1  
+
+- name: Create public namespace
+  file:
+    path: "{{ dokuwiki_install_path }}/data/{{item}}/{{dokuwiki_public_namespace_name}}"
+    state: directory
+    owner: www-data
+  with_items:
+    - "pages"
+    - "media"
+
+- name: Create wiki namespace
+  file:
+    path: "{{ dokuwiki_install_path }}/data/{{item}}/wiki"
+    state: directory
+    owner: www-data
+  with_items:
+    - "pages"
+    - "media"
+
+- name: Copy Logo to Server
+  copy:
+    src: "{{inventory_hostname}}/{{dokuwiki_custom_logo}}"
+    dest: "{{dokuwiki_install_path}}/data/media/wiki/logo.png"
+    owner: www-data
+  when: dokuwiki_custom_logo is defined

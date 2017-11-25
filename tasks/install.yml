@@ -39,13 +39,6 @@
     name: "php-ldap"
   when: ansible_pkg_mgr == "apt" and dokuwiki_authtype == "authldap"
 
-- name: Copy Logo to Server
-  copy:
-    src: "{{inventory_hostname}}/logo.png"
-    dest: "{{dokuwiki_install_path}}/data/media/wiki/logo.png"
-    owner: www-data
-  when: dokuwiki_custom_logo is defined
-
 - name: Remove default plugins
   file:
     path: '{{dokuwiki_install_path}}/lib/plugins/{{ item }}'
@@ -55,12 +48,6 @@
     - authmysql
     - authpgsql
     - authad
-
-- name: Set acls
-  copy:
-    src: '{{inventory_hostname}}/acl.auth.php'
-    dest: '{{dokuwiki_install_path}}/conf/acl.auth.php'
-  when: dokuwiki_useacl == 1
 
 - name: Copy data 
   synchronize:
