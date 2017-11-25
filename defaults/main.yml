@@ -1,5 +1,19 @@
 ---
 dokuwiki_install_path: /srv/dokuwiki
+dokuwiki_public_namespace_name: "public"
+dokuwiki_acls:
+  - namespace: "*"
+    group: "@ALL"
+    permission: 0
+  - namespace: "*"
+    group: "@user"
+    permission: 1
+  - namespace: "public:*"
+    group: "@ALL"
+    permission: 1
+  - namespace: ":logo.png"
+    group: "@ALL"
+    permission: 1
 #Wiki-Configurations
 dokuwiki_title: 'Wiki'
 dokuwiki_start: 'Startseite'
@@ -131,18 +145,3 @@ dokuwiki_target_interwiki: ''
 dokuwiki_target_extern: ''
 dokuwiki_target_media: ''
 dokuwiki_target_windows: '' 
-
-dokuwiki_public_namespace_name: "public"
-dokuwiki_acls:
-  - namespace: "*"
-    group: "@ALL"
-    permission: 0
-  - namespace: "*"
-    group: "@user"
-    permission: 1
-  - namespace: "public:*"
-    group: "@ALL"
-    permission: 1
-  - namespace: ":logo.png"
-    group: "@ALL"
-    permission: 1

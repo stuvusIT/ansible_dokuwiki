@@ -1,0 +1,4 @@
+# {{ ansible_managed }}
+{% for acl in dokuwiki_acls %}
+{{ acl.namespace }} {{ acl.group }} {{ acl.permission }}
+{% endfor %}
