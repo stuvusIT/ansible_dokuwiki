@@ -24,6 +24,7 @@ There are no mandatory variables for this role. It will be a generic dokuwiki wi
 | `dokuwiki_custom_logo`           | :heavy_multiplication_x: |         | Name of png file to be used as logo                             |                        |
 
 ### Acl object
+Permission informationen can be found below under Acl Permission
 | Name         |      Required      | Default | Description                                       |
 |:-------------|:------------------:|:--------|:--------------------------------------------------|
 | `namespace`  | :heavy_check_mark: |         | Namespace where the permissions should be applied |

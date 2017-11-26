@@ -62,4 +62,3 @@
     state: present
     insertafter: '// needs version 3'
     path: "{{ dokuwiki_install_path }}/lib/plugins/authldap/auth.php"
-
