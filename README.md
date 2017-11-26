@@ -16,6 +16,33 @@ To see all vars possible for dokuwiki see
 
 There are no mandatory variables for this role. It will be a generic dokuwiki without specified variables though.
 
+| Name                             |         Required         | Default | Description                                                     |
+|:---------------------------------|:------------------------:|:--------|:----------------------------------------------------------------|
+| `dokuwiki_install_path`          | :heavy_multiplication_x: |         | Install path of dokuwiki                                        |
+| `dokuwiki_public_namespace_name` | :heavy_multiplication_x: |         | Name of the public namespace to be created                      |
+| `dokuwiki_acls`                  | :heavy_multiplication_x: |         | Required if `dokuwiki_useacls` is set. List of dict acl objects |
+| `dokuwiki_custom_logo`           | :heavy_multiplication_x: |         | Name of png file to be used as logo                             |                        |
+
+### Acl object
+Permission informationen can be found below under Acl Permission
+| Name         |      Required      | Default | Description                                       |
+|:-------------|:------------------:|:--------|:--------------------------------------------------|
+| `namespace`  | :heavy_check_mark: |         | Namespace where the permissions should be applied |
+| `group`      | :heavy_check_mark: |         | Group for the acl                                 |
+| `permission` | :heavy_check_mark: |         | Permission value for the acl.                     |
+
+### Acl Permission
+| Name   | Permission value |
+|:-------|:-----------------|
+| None   | 0                |
+| Read   | 1                |
+| Edit   | 2                |
+| Create | 4                |
+| Upload | 8                |
+| Delete | 16               |
+
+
+
 ## Dependencies
 
 This role needs the [php-fpm](https://github.com/stuvusIT/php-fpm) and [nginx](https://github.com/stuvusIT/nginx) role installed on the host to function with the variables from the group_vars of dokuwiki.yml. 
