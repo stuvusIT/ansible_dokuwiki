@@ -1,0 +1,19 @@
+- name: Download and Extract template
+  unarchive:
+    src: "{{dokuwiki_template_url}}"
+    dest: /tmp/template
+    remote_src: true
+    extra_opts: ["--strip-components=1"]
+
+- name: Get template dir name
+  shell: "cat /tmp/template/template.info.txt | awk '{if(/^base/){print $2}}'"
+  register: dokuwiki_template_name
+
+- name: Move template to correct dir
+  shell: "mv -f /tmp/template {{dokuwiki_install_path}}/lib/tpl/{{dokuwiki_template_name.stdout_lines[0]}}/"
+
+- name: Set owner on template dir
+  file:
+    path: "{{dokuwiki_install_path}}/lib/tpl/{{dokuwiki_template_name.stdout_lines[0]}}"
+    state: directory
+    owner: www-data

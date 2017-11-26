@@ -16,12 +16,12 @@ To see all vars possible for dokuwiki see
 
 There are no mandatory variables for this role. It will be a generic dokuwiki without specified variables though.
 
-| Name                             |         Required         | Default | Description                                                |
-|:---------------------------------|:------------------------:|:--------|:-----------------------------------------------------------|
-| `dokuwiki_install_path`          | :heavy_multiplication_x: |         | Install path of dokuwiki                                   |
-| `dokuwiki_public_namespace_name` | :heavy_multiplication_x: |         | Name of the public namespace to be created                 |
+| Name                             |         Required         | Default | Description                                                     |
+|:---------------------------------|:------------------------:|:--------|:----------------------------------------------------------------|
+| `dokuwiki_install_path`          | :heavy_multiplication_x: |         | Install path of dokuwiki                                        |
+| `dokuwiki_public_namespace_name` | :heavy_multiplication_x: |         | Name of the public namespace to be created                      |
 | `dokuwiki_acls`                  | :heavy_multiplication_x: |         | Required if `dokuwiki_useacls` is set. List of dict acl objects |
-| `dokuwiki_custom_logo`           | :heavy_multiplication_x: |         | Name of png file to be used as logo                        |
+| `dokuwiki_custom_logo`           | :heavy_multiplication_x: |         | Name of png file to be used as logo                             |                        |
 
 ### Acl object
 | Name         |      Required      | Default | Description                                       |

@@ -1,7 +1,8 @@
 ---
-- name: Update apt repositories cache
+- name: Update apt repositories cache and Install awk
   apt:
     update_cache: yes
+    name: gawk
   changed_when: false
   when: ansible_pkg_mgr == "apt"
 

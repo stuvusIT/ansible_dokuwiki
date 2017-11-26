@@ -131,7 +131,7 @@ dokuwiki_readdircache: 0
 dokuwiki_dnslookup: 1
 dokuwiki_jquerycdn: 0
 
-#Stuvus-Wiki-Proxy-Configurations:
+#Wiki-Proxy-Configurations:
 dokuwiki_proxy_host: ''
 dokuwiki_proxy_port: ''
 dokuwiki_proxy_user: ''

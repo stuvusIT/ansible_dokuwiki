@@ -11,7 +11,7 @@
  *
  * For help with the configuration and a more detailed explanation of the various options
  * see http://www_dokuwiki_org/config
- * 
+ *
  */
 
 /* Basic Settings */
@@ -19,7 +19,12 @@
 $conf['title']       = '{{ dokuwiki_title }}';     //what to show in the title
 $conf['start']       = '{{ dokuwiki_start }}';     //name of start page
 $conf['lang']        = '{{ dokuwiki_language }}';  //your language
+{% if dokuwiki_template_name.stdout_lines is defined %}
+$conf['template']    = '{{ dokuwiki_template_name.stdout_lines[0] }}';   //see lib/tpl directory
+{% else %}
 $conf['template']    = '{{ dokuwiki_template }}';   //see lib/tpl directory
+{% endif %}
+
 $conf['tagline']     = '{{ dokuwiki_tagline }}';  //tagline in header (if template supports it)
 $conf['sidebar']     = '{{ dokuwiki_sidebar_name }}';//name of sidebar in root namespace (if template supports it)
 $conf['license']     = '{{ dokuwiki_license }}';   //see conf/license_php
@@ -40,7 +45,7 @@ $conf['youarehere']  = {{ dokuwiki_youarehere }};//show "You are here" navigatio
 $conf['fullpath']    = {{ dokuwiki_fullpath }};  //show full path of the document or relative to datadir only? 0|1
 $conf['typography']  = {{ dokuwiki_typography }};//smartquote conversion 0=off, 1=doublequotes, 2=all quotes
 $conf['dformat']     = '{{ dokuwiki_dformat }}';   //dateformat accepted by PHPs strftime() function default:
-$conf['signature']   = '{{ dokuwiki_signature }}'; //signature see wiki page for details 
+$conf['signature']   = '{{ dokuwiki_signature }}'; //signature see wiki page for details
 $conf['showuseras']  =  '{{ dokuwiki_showuseras }}'; // 'loginname' users login name
 
                                         // 'username' users full name
@@ -69,12 +74,12 @@ $conf['manager']     = '{{ dokuwiki_manager }}';   //The manager can be user or 
 $conf['profileconfirm'] = {{ dokuwiki_profileconfirm }};//Require current password to confirm changes to user profile
 $conf['rememberme'] = {{ dokuwiki_rememberme }}; //Enable/disable remember me on login
 $conf['disableactions'] = '{{ dokuwiki_disableactions }}';//comma separated list of actions to disable
-$conf['auth_security_timeout'] = {{ dokuwiki_auth_security_timeout}};//time (seconds) auth data is considered valid, set to 0 to recheck on every page view 
+$conf['auth_security_timeout'] = {{ dokuwiki_auth_security_timeout}};//time (seconds) auth data is considered valid, set to 0 to recheck on every page view
 $conf['securecookie'] = {{ dokuwiki_securecookie }};//never send HTTPS cookies via HTTP
 $conf['remote']      = {{ dokuwiki_remote }};    //Enable/disable remote interfaces
 $conf['remoteuser']  = '{{ dokuwiki_remoteuser }}';//user/groups that have access to remote interface (comma separated)
 
-/* Antispam Features */ 
+/* Antispam Features */
 $conf['usewordblock']= {{ dokuwiki_usewordblock }};//block spam based on words? 0|1
 $conf['relnofollow'] = {{ dokuwiki_relnofollow }};//use rel="nofollow" for external links?
 $conf['indexdelay']  = {{ dokuwiki_indexdelay }}; //allow indexing after this time (seconds) default is 5 days default:  60*60*24*5
@@ -90,8 +95,8 @@ $conf['iexssprotect']= {{ dokuwiki_iexssprotect }};// check for JavaScript and H
 $conf['usedraft']    = {{ dokuwiki_usedraft }};   //automatically save a draft while editing (0|1)
 $conf['htmlok']      = {{ dokuwiki_htmlok }};     //may raw HTML be embedded? This may break layout and XHTML validity 0|1
 $conf['phpok']       = {{ dokuwiki_phpok  }};      //may PHP code be embedded? Never do this on the internet! 0|1
-$conf['locktime']    = {{ dokuwiki_locktime }};   //maximum age for lockfiles (defaults to 15 minutes) 
-$conf['cachetime']   = {{ dokuwiki_cachetime }};  //maximum age for cachefile in seconds (defaults to a day) 
+$conf['locktime']    = {{ dokuwiki_locktime }};   //maximum age for lockfiles (defaults to 15 minutes)
+$conf['cachetime']   = {{ dokuwiki_cachetime }};  //maximum age for cachefile in seconds (defaults to a day)
 
 /* Link Settings */
 // Set target to use when creating links - leave empty for same window
@@ -196,5 +201,3 @@ $conf['ftp']['port'] = '21';
 $conf['ftp']['user'] = 'user';
 $conf['ftp']['pass'] = 'password';
 $conf['ftp']['root'] = '/home/user/htdocs';
-
-

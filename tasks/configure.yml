@@ -1,18 +1,4 @@
 ---
-- name: template for dokuwiki main-config file.
-  template:
-    src: templates/local.php.j2
-    dest: "{{ dokuwiki_install_path }}/conf/local.php"
-  
-- name: template for plugins.
-  template: 
-    src: templates/plugins.local.php.j2
-    dest: "{{ dokuwiki_install_path }}/conf/plugins.local.php"
-
-- name: template for protected configurations.
-  template: 
-    src: templates/local.protected.php.j2
-    dest: '{{ dokuwiki_install_path }}/conf/local.protected.php'
 
 - name: Configure acls
   template: 
@@ -44,3 +30,26 @@
     dest: "{{dokuwiki_install_path}}/data/media/wiki/logo.png"
     owner: www-data
   when: dokuwiki_custom_logo is defined
+
+- name: Create template dir
+  file:
+    path: /tmp/template
+    state: directory
+
+- import_tasks: install_template.yml
+  when: dokuwiki_template_url is defined
+
+- name: template for dokuwiki main-config file.
+  template:
+    src: templates/local.php.j2
+    dest: "{{ dokuwiki_install_path }}/conf/local.php"
+  
+- name: template for plugins.
+  template: 
+    src: templates/plugins.local.php.j2
+    dest: "{{ dokuwiki_install_path }}/conf/plugins.local.php"
+
+- name: template for protected configurations.
+  template: 
+    src: templates/local.protected.php.j2
+    dest: '{{ dokuwiki_install_path }}/conf/local.protected.php'
