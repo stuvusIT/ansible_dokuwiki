@@ -1,4 +1,4 @@
-# Dokuwiki 
+# Dokuwiki
 
 This is an ansible role which sets up a dokuwiki instance and configures the wiki and the ldap authentication for the users.
 
@@ -11,7 +11,7 @@ This role needs an apt based packager manager.
 
 If you set useacl to 1 you can place a acl.auth.php in the hosts file folder in your repository it will be copied over.
 Same is if you set dokuwiki_custom_logo to true, then you can place a logo.png in the file folder and it will be copied.
-To see all vars possible for dokuwiki see 
+To see all vars possible for dokuwiki see
 [dokuwiki config page](https://www.dokuwiki.org/config)
 
 There are no mandatory variables for this role. It will be a generic dokuwiki without specified variables though.
@@ -25,6 +25,7 @@ There are no mandatory variables for this role. It will be a generic dokuwiki wi
 
 ### Acl object
 Permission informationen can be found below under Acl Permission
+
 | Name         |      Required      | Default | Description                                       |
 |:-------------|:------------------:|:--------|:--------------------------------------------------|
 | `namespace`  | :heavy_check_mark: |         | Namespace where the permissions should be applied |
@@ -45,7 +46,7 @@ Permission informationen can be found below under Acl Permission
 
 ## Dependencies
 
-This role needs the [php-fpm](https://github.com/stuvusIT/php-fpm) and [nginx](https://github.com/stuvusIT/nginx) role installed on the host to function with the variables from the group_vars of dokuwiki.yml. 
+This role needs the [php-fpm](https://github.com/stuvusIT/php-fpm) and [nginx](https://github.com/stuvusIT/nginx) role installed on the host to function with the variables from the group_vars of dokuwiki.yml.
 
 ## Playbook
 
